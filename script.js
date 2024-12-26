@@ -52,6 +52,10 @@ function nextCard() {
     loadCSVData().then(idioms => {
         currentCard = (currentCard + 1) % idioms.length;
         loadCard();
+        // Ensure the flashcard flips every time a new idiom is loaded
+        setTimeout(() => {
+            flipCard();
+        }, 200); // Delay slightly for the flip animation to take effect
     });
 }
 
