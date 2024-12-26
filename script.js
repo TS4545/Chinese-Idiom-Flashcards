@@ -1,7 +1,5 @@
-const csvFilePath = 'idioms.csv';
-
 async function loadCSVData() {
-    const response = await fetch(csvFilePath);
+    const response = await fetch('idioms.csv');
     const text = await response.text();
     const rows = text.split("\n").slice(1); // Skip header row
 
@@ -42,8 +40,10 @@ function flipCard() {
 }
 
 function nextCard() {
-    currentCard = (currentCard + 1) % idioms.length;
-    loadCard();
+    loadCSVData().then(idioms => {
+        currentCard = (currentCard + 1) % idioms.length;
+        loadCard();
+    });
 }
 
 window.onload = loadCard;
