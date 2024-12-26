@@ -1,4 +1,3 @@
-// Fetch idioms data
 async function loadCSVData() {
     const response = await fetch('idioms.csv');
     const text = await response.text();
@@ -14,6 +13,12 @@ async function loadCSVData() {
             sentence
         };
     });
+
+    // Shuffle idioms array
+    for (let i = idioms.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [idioms[i], idioms[j]] = [idioms[j], idioms[i]];
+    }
 
     return idioms;
 }
@@ -33,6 +38,9 @@ async function loadCard() {
         <p><strong>Explanation:</strong> ${card.explanation}</p>
         <p><strong>Sentence:</strong> ${card.sentence}</p>
     `;
+
+    // Update the counter
+    document.getElementById("counter").textContent = `${currentCard + 1}/${idioms.length}`;
 }
 
 function flipCard() {
@@ -43,8 +51,11 @@ function flipCard() {
 function nextCard() {
     loadCSVData().then(idioms => {
         currentCard = (currentCard + 1) % idioms.length;
-        loadCard();
+        flipCard(); // Ensure the flip happens
+        setTimeout(() => loadCard(), 200); // Load new card after flip
     });
 }
+
+document.getElementById("flashcard").addEventListener("click", flipCard);
 
 window.onload = loadCard;
