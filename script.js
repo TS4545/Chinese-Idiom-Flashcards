@@ -46,6 +46,18 @@ async function loadCard() {
 function flipCard() {
     const flashcard = document.getElementById("flashcard");
     flashcard.classList.toggle("flipped");
+
+    // Ensure visibility is updated properly
+    const front = document.getElementById("front");
+    const back = document.getElementById("back");
+
+    if (flashcard.classList.contains("flipped")) {
+        front.style.visibility = "hidden";
+        back.style.visibility = "visible";
+    } else {
+        front.style.visibility = "visible";
+        back.style.visibility = "hidden";
+    }
 }
 
 function nextCard() {

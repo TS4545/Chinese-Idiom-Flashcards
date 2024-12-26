@@ -36,21 +36,21 @@ h1 {
 
 .front {
     background-color: #f9f9f9;
+    visibility: visible; /* Show front initially */
 }
 
 .back {
     background-color: #fff;
     transform: rotateY(180deg);
+    visibility: hidden; /* Hide back initially */
 }
 
 #flashcard.flipped .front {
-    transform: rotateY(180deg);
-    visibility: hidden; /* Hide front side */
+    visibility: hidden;
 }
 
 #flashcard.flipped .back {
-    transform: rotateY(360deg);
-    visibility: visible; /* Show back side */
+    visibility: visible;
 }
 
 button {
