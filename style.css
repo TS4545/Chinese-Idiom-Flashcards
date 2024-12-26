@@ -45,10 +45,12 @@ h1 {
 
 #flashcard.flipped .front {
     transform: rotateY(180deg);
+    visibility: hidden; /* Hide front side */
 }
 
 #flashcard.flipped .back {
     transform: rotateY(360deg);
+    visibility: visible; /* Show back side */
 }
 
 button {
