@@ -1,10 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
 #flashcard {
-    width: 600px;
-    height: 450px;
+    width: 500px; /* Increase width */
+    height: 400px; /* Increase height */
     margin: 20px auto;
     perspective: 1000px;
     cursor: pointer;
-    transition: transform 0.6s;
 }
 
 #flashcard div {
@@ -15,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 20px; /* Increase font size */
     text-align: center;
     padding: 20px;
     border: 1px solid #ddd;
@@ -25,17 +36,13 @@
 
 .front {
     background-color: #f9f9f9;
-    visibility: visible;
+    visibility: visible; /* Show front initially */
 }
 
 .back {
     background-color: #fff;
     transform: rotateY(180deg);
-    visibility: hidden;
-}
-
-#flashcard.flipped {
-    transform: rotateY(180deg);
+    visibility: hidden; /* Hide back initially */
 }
 
 #flashcard.flipped .front {
@@ -44,4 +51,24 @@
 
 #flashcard.flipped .back {
     visibility: visible;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#counter {
+    margin-top: 10px;
+    font-size: 18px;
 }
