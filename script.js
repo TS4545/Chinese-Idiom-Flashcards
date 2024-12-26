@@ -43,11 +43,18 @@ async function loadCard() {
     document.getElementById("counter").textContent = `${currentCard + 1}/${idioms.length}`;
 }
 
+function flipCard() {
+    const flashcard = document.getElementById("flashcard");
+    flashcard.classList.toggle("flipped");
+}
+
 function nextCard() {
     loadCSVData().then(idioms => {
         currentCard = (currentCard + 1) % idioms.length;
         loadCard();
     });
 }
+
+document.getElementById("flashcard").addEventListener("click", flipCard);
 
 window.onload = loadCard;
