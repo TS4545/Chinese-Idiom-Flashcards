@@ -51,8 +51,7 @@ function flipCard() {
 function nextCard() {
     loadCSVData().then(idioms => {
         currentCard = (currentCard + 1) % idioms.length;
-        flipCard(); // Ensure the flip happens
-        setTimeout(() => loadCard(), 200); // Load new card after flip
+        loadCard();
     });
 }
 
