@@ -11,8 +11,8 @@ h1 {
 }
 
 #flashcard {
-    width: 400px; /* Increase width */
-    height: 300px; /* Increase height */
+    width: 500px; /* Increase width */
+    height: 400px; /* Increase height */
     margin: 20px auto;
     perspective: 1000px;
     cursor: pointer;
@@ -26,7 +26,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 20px; /* Increase font size */
     text-align: center;
     padding: 20px;
     border: 1px solid #ddd;
@@ -64,4 +64,9 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#counter {
+    margin-top: 10px;
+    font-size: 18px;
 }
